@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import WhyGitty from "@/components/WhyGitty";
 import Interactive from "@/components/Interactive";
@@ -12,7 +11,6 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <Hero />
-      <ProductPreview />
       <Features />
       <WhyGitty />
       <Interactive />
