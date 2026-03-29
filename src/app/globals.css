@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm neutrals — inspired by Intercom's warm palette */
+  --color-black: #17100e;
+  --color-off-black: #1a1210;
+  --color-charcoal: #2d2420;
+  --color-warm-gray: #6b5e57;
+  --color-muted: #9a8f89;
+  --color-clay: #d3cec6;
+  --color-linen: #dedbd6;
+  --color-canvas: #e7e3db;
+  --color-chalk: #f1eee9;
+  --color-cream: #f4f3ec;
+  --color-off-white: #faf9f6;
+  --color-white: #ffffff;
+
+  /* Brand accents — Gitty identity */
+  --color-pink: #ff5c8a;
+  --color-pink-soft: #ff7da5;
+  --color-teal: #00d4aa;
+  --color-teal-soft: #4ee8c7;
+  --color-navy: #020917;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-white);
+    color: var(--color-off-black);
+  }
+
+  ::selection {
+    background-color: var(--color-off-black);
+    color: var(--color-white);
+  }
+
+  /* Tight heading tracking — Intercom style */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+}
+
+/* Corner mark decoration on cards — Intercom signature */
+.corner-marks {
+  position: relative;
+}
+
+.corner-marks::before,
+.corner-marks::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--color-clay);
+}
+
+.corner-marks::before {
+  top: 12px;
+  left: 12px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.corner-marks::after {
+  top: 12px;
+  right: 12px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+/* Bottom corner marks — requires a child element */
+.corner-marks-bottom {
+  position: relative;
+}
+
+.corner-marks-bottom::before,
+.corner-marks-bottom::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--color-clay);
+}
+
+.corner-marks-bottom::before {
+  bottom: 12px;
+  left: 12px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.corner-marks-bottom::after {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* Link underline animation */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 100% 1px;
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease-out;
+}
+
+.link-underline:hover {
+  background-size: 0% 1px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-clay);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
