@@ -5,17 +5,21 @@ import WhyGitty from "@/components/WhyGitty";
 import Interactive from "@/components/Interactive";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 
 export default function Home() {
   return (
-    <main className="relative">
-      <Navbar />
-      <Hero />
-      <Features />
-      <WhyGitty />
-      <Interactive />
-      <FinalCTA />
-      <Footer />
-    </main>
+    <>
+      <JsonLd />
+      <main className="relative">
+        <Navbar />
+        <Hero />
+        <Features />
+        <WhyGitty />
+        <Interactive />
+        <FinalCTA />
+        <Footer />
+      </main>
+    </>
   );
 }

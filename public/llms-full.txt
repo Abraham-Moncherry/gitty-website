@@ -1,0 +1,61 @@
+# Gitty — Full Documentation
+
+> Gitty is a free Chrome extension that gamifies your Git commits to help developers build consistent coding habits.
+
+## Product Summary
+
+Gitty is designed for developers who want to code more consistently. It lives in your Chrome toolbar and provides a dashboard of your Git activity — commit heatmaps, streak tracking, achievement badges, and leaderboards. The core insight is that most developers don't fail because of lack of talent, but because of inconsistency. Gitty uses game mechanics (streaks, badges, competition) to make consistency visible and rewarding.
+
+## Target Audience
+
+- Software developers who want to build better coding habits
+- Developers who use GitHub and want to track their commit consistency
+- Teams or friend groups who want friendly coding competition
+- Anyone who responds well to gamification and streak-based motivation
+
+## Features in Detail
+
+### Yearly Commit Tracking
+See every commit across all your repos in one place. Your entire year of coding is visualized in a single heatmap, similar to GitHub's contribution graph but enhanced with Gitty's tracking and insights.
+
+### Streak System
+The streak counter tracks consecutive days where you've made at least one commit. If you miss a day, the streak resets to zero. This simple mechanic is the core motivator — users report it as the primary reason they keep coding daily.
+
+### Smart Reminders
+Configure daily reminders at your preferred time. If you haven't committed by that time, Gitty sends a gentle notification reminding you to push some code. This prevents accidental streak breaks.
+
+### Leaderboards
+Two types of leaderboards:
+- **Friends**: Add people you know and compete within your circle
+- **Global**: See how you rank against all Gitty users worldwide
+
+Leaderboards can be filtered by time period: this week, this month, or this year.
+
+### Badges & Achievements
+Unlock badges for hitting milestones:
+- First Push: Make your first commit with Gitty installed
+- Week Warrior: Maintain a 7-day streak
+- Centurion: Reach 100 total commits
+- Night Owl: Commit after midnight
+- 1K Club: Reach 1,000 total commits
+- Streak Legend: Maintain a 365-day streak
+- And more...
+
+## Technical Details
+
+- **Platform**: Chrome Extension (Manifest V3)
+- **Browser Support**: Chrome, Brave, Edge, Arc
+- **Price**: Free
+- **Data Source**: GitHub API
+- **Privacy**: Gitty only reads your public commit data
+
+## Install
+
+Chrome Web Store: https://chromewebstore.google.com/detail/gitty/cmeekbcgghibflilahenopcglgoegagl
+
+## Links
+
+- Website: https://getgitty.dev
+- GitHub: https://github.com/Abraham-Moncherry
+- Creator: Abraham Moncherry (https://abrahamm.dev)
+- LinkedIn: https://www.linkedin.com/in/abrahammoncherry/

@@ -1,0 +1,28 @@
+# Gitty
+
+> Gitty is a Chrome extension that gamifies your Git commits. It helps developers track commits, build daily streaks, earn badges, and compete on leaderboards.
+
+## Overview
+
+Gitty turns coding consistency into a game. Instead of letting commits happen passively, Gitty makes them visible, trackable, and rewarding. Developers can see their yearly commit activity, maintain daily streaks, unlock achievement badges, and compete with friends or globally on leaderboards. The extension also supports smart reminders to nudge users when they haven't committed that day.
+
+## Install
+
+- Chrome Web Store: https://chromewebstore.google.com/detail/gitty/cmeekbcgghibflilahenopcglgoegagl
+- Works with: Chrome, Brave, Edge, Arc
+
+## Features
+
+- **Yearly Commit Tracking**: Visualize all commits across repos in a single heatmap for the entire year.
+- **Streak System**: Track consecutive days with at least one commit. Miss a day and the streak resets.
+- **Smart Reminders**: Set daily reminders to commit. Get notified if you haven't pushed code that day.
+- **Leaderboards**: Compete with friends or climb the global rankings by week, month, or year.
+- **Badges & Achievements**: Unlock badges for milestones like 100-day streaks, 1000 commits, weekend warrior, and more.
+
+## Links
+
+- Website: https://getgitty.dev
+- Chrome Web Store: https://chromewebstore.google.com/detail/gitty/cmeekbcgghibflilahenopcglgoegagl
+- GitHub: https://github.com/Abraham-Moncherry
+- Creator: Abraham Moncherry
+- LinkedIn: https://www.linkedin.com/in/abrahammoncherry/
