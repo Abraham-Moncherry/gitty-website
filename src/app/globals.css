@@ -22,9 +22,9 @@
   --color-teal-soft: #4ee8c7;
   --color-navy: #020917;
 
-  /* Fixed dark surfaces — never remap, always dark */
-  --color-dark-surface: #1a1210;
-  --color-dark-surface-deep: #0a0a09;
+  /* Fixed colors — never remap */
+  --color-fixed-white: #ffffff;
+  --color-fixed-black: #1a1210;
 
   /* Semantic tokens — swap in dark mode */
   --color-surface: var(--color-white);

@@ -71,7 +71,9 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center">
           <motion.a
-            href="#cta"
+            href="https://chromewebstore.google.com/detail/gitty/cmeekbcgghibflilahenopcglgoegagl"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.15 }}
@@ -130,7 +132,9 @@ export default function Navbar() {
               ))}
               <div className="pt-4 border-t border-black/[0.06] flex flex-col gap-3">
                 <a
-                  href="#cta"
+                  href="https://chromewebstore.google.com/detail/gitty/cmeekbcgghibflilahenopcglgoegagl"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="px-5 py-2.5 bg-off-black text-white text-sm rounded-md text-center hover:bg-charcoal transition-colors"
                 >

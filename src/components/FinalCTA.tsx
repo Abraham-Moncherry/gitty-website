@@ -21,7 +21,8 @@ function FloatingShape({
       <motion.div
         animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
         transition={{ duration: 6 + delay * 2, repeat: Infinity, ease: "easeInOut" }}
-        className="w-full h-full rounded-lg border border-white/[0.06]"
+        className="w-full h-full rounded-lg"
+        style={{ border: "1px solid rgba(255,255,255,0.06)" }}
       />
     </motion.div>
   );
@@ -70,7 +71,8 @@ export default function FinalCTA() {
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
-            className="font-mono text-[11px] uppercase tracking-[0.06em] text-white/30 mb-6"
+            className="font-mono text-[11px] uppercase tracking-[0.06em] mb-6"
+            style={{ color: "rgba(255,255,255,0.3)" }}
           >
             Get started
           </motion.p>
@@ -82,14 +84,17 @@ export default function FinalCTA() {
             className="font-display text-[clamp(2.2rem,5vw,4.5rem)] tracking-[-0.04em] leading-[0.92] mb-8"
           >
             Stop thinking about coding.{" "}
-            <span className="text-white/30">Start shipping.</span>
+            <span style={{ color: "rgba(255,255,255,0.3)" }}>
+              Start shipping.
+            </span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-white/40 text-lg leading-relaxed mb-12 max-w-lg"
+            className="text-lg leading-relaxed mb-12 max-w-lg"
+            style={{ color: "rgba(255,255,255,0.4)" }}
           >
             Join thousands of developers who turned their commits into a daily
             habit. It takes 10 seconds to install.
@@ -102,7 +107,9 @@ export default function FinalCTA() {
             className="flex flex-col sm:flex-row items-start gap-4"
           >
             <motion.a
-              href="#"
+              href="https://chromewebstore.google.com/detail/gitty/cmeekbcgghibflilahenopcglgoegagl"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.15 }}
@@ -121,7 +128,10 @@ export default function FinalCTA() {
               </svg>
               Add to Chrome — It&apos;s free
             </motion.a>
-            <p className="font-mono text-[11px] text-white/20 self-center">
+            <p
+              className="font-mono text-[11px] self-center"
+              style={{ color: "rgba(255,255,255,0.2)" }}
+            >
               Works with Chrome, Brave, Edge, and Arc
             </p>
           </motion.div>

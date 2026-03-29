@@ -147,7 +147,9 @@ export default function Hero() {
           className="flex items-center gap-4 mb-20 md:mb-28"
         >
           <motion.a
-            href="#cta"
+            href="https://chromewebstore.google.com/detail/gitty/cmeekbcgghibflilahenopcglgoegagl"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.15 }}

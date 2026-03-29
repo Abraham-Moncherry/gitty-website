@@ -38,7 +38,10 @@ function FooterLinkColumn({
       transition={{ duration: 0.4, delay }}
       className="md:col-span-3"
     >
-      <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-white/20 mb-4">
+      <p
+        className="font-mono text-[11px] uppercase tracking-[0.06em] mb-4"
+        style={{ color: "rgba(255,255,255,0.2)" }}
+      >
         {title}
       </p>
       <ul className="space-y-2.5">
@@ -54,10 +57,20 @@ function FooterLinkColumn({
               {...(external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="relative text-sm text-white/40 hover:text-white transition-colors duration-200 group"
+              className="relative text-sm transition-colors duration-200 group"
+              style={{ color: "rgba(255,255,255,0.4)" }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "rgba(255,255,255,1)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "rgba(255,255,255,0.4)")
+              }
             >
               {link.label}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-white/40 group-hover:w-full transition-all duration-300" />
+              <span
+                className="absolute -bottom-0.5 left-0 w-0 h-[1px] group-hover:w-full transition-all duration-300"
+                style={{ backgroundColor: "rgba(255,255,255,0.4)" }}
+              />
             </a>
           </motion.li>
         ))}
@@ -71,7 +84,14 @@ export default function Footer() {
   const inView = useInView(ref, { once: true, margin: "-30px" });
 
   return (
-    <footer className="border-t" style={{ backgroundColor: "#1a1210", color: "#ffffff", borderColor: "rgba(255,255,255,0.06)" }}>
+    <footer
+      className="border-t"
+      style={{
+        backgroundColor: "#1a1210",
+        color: "#ffffff",
+        borderColor: "rgba(255,255,255,0.06)",
+      }}
+    >
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-10">
           {/* Logo column */}
@@ -98,7 +118,10 @@ export default function Footer() {
                 Gitty
               </span>
             </motion.a>
-            <p className="text-white/30 text-sm leading-relaxed max-w-xs">
+            <p
+              className="text-sm leading-relaxed max-w-xs"
+              style={{ color: "rgba(255,255,255,0.3)" }}
+            >
               The Chrome extension that turns your Git commits into a daily
               habit. Track, compete, and ship more code.
             </p>
@@ -119,12 +142,19 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+          className="mt-16 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
-          <p className="font-mono text-[11px] text-white/20">
+          <p
+            className="font-mono text-[11px]"
+            style={{ color: "rgba(255,255,255,0.2)" }}
+          >
             &copy; 2026 Gitty. Ship more code.
           </p>
-          <p className="font-mono text-[11px] text-white/20">
+          <p
+            className="font-mono text-[11px]"
+            style={{ color: "rgba(255,255,255,0.2)" }}
+          >
             Made for developers who want to be consistent.
           </p>
         </motion.div>
