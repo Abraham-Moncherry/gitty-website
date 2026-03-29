@@ -60,7 +60,7 @@ function FeatureCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.05 }}
       className={`group grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center ${
@@ -69,6 +69,14 @@ function FeatureCard({
     >
       {/* Text */}
       <div className={isReversed ? "lg:order-2" : ""}>
+        <motion.span
+          initial={{ width: 0 }}
+          animate={inView ? { width: 24 } : {}}
+          transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
+          className={`block h-[2px] mb-4 ${
+            feature.accent === "pink" ? "bg-pink" : "bg-teal"
+          }`}
+        />
         <span
           className={`font-mono text-[11px] tracking-[0.06em] mb-4 block ${
             feature.accent === "pink" ? "text-pink" : "text-teal"
@@ -76,7 +84,7 @@ function FeatureCard({
         >
           {feature.number}
         </span>
-        <h3 className="font-display text-2xl md:text-3xl tracking-[-0.02em] mb-4">
+        <h3 className="font-display text-2xl md:text-3xl tracking-[-0.02em] mb-4 group-hover:text-black/70 transition-colors duration-300">
           {feature.title}
         </h3>
         <p className="text-black/40 leading-relaxed max-w-md">
@@ -85,12 +93,16 @@ function FeatureCard({
       </div>
 
       {/* Image placeholder */}
-      <div className={isReversed ? "lg:order-1" : ""}>
-        <div className="relative bg-chalk rounded-lg aspect-[4/3] overflow-hidden corner-marks corner-marks-bottom">
+      <motion.div
+        className={isReversed ? "lg:order-1" : ""}
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
+        <div className="relative bg-chalk rounded-lg aspect-[4/3] overflow-hidden corner-marks corner-marks-bottom group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-shadow duration-500">
           <img
             src={feature.image}
             alt={feature.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
               const target = e.currentTarget;
               target.style.display = "none";
@@ -100,8 +112,7 @@ function FeatureCard({
                 "justify-center"
               );
               const placeholder = document.createElement("div");
-              placeholder.className =
-                "text-center px-8";
+              placeholder.className = "text-center px-8";
               placeholder.innerHTML = `
                 <p class="font-mono text-[11px] uppercase tracking-[0.06em] text-black/20 mb-2">Image placeholder</p>
                 <p class="text-black/15 text-sm">${feature.title}</p>
@@ -110,7 +121,7 @@ function FeatureCard({
             }}
           />
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -138,7 +149,6 @@ export default function Features() {
           </h2>
         </motion.div>
 
-        {/* Feature cards */}
         <div>
           {features.map((feature, i) => (
             <FeatureCard key={feature.number} feature={feature} index={i} />

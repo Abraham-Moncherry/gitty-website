@@ -30,11 +30,15 @@ export default function WhyGitty() {
             </p>
 
             {/* Image placeholder */}
-            <div className="relative bg-chalk rounded-lg aspect-[4/3] overflow-hidden corner-marks corner-marks-bottom">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative bg-chalk rounded-lg aspect-[4/3] overflow-hidden corner-marks corner-marks-bottom hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-shadow duration-500"
+            >
               <img
                 src="/why-gitty.png"
                 alt="Why Gitty"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 onError={(e) => {
                   const target = e.currentTarget;
                   target.style.display = "none";
@@ -52,7 +56,7 @@ export default function WhyGitty() {
                   target.parentElement!.appendChild(placeholder);
                 }}
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right — content cards */}
@@ -86,9 +90,13 @@ export default function WhyGitty() {
             >
               <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] tracking-[-0.03em] leading-[1.05]">
                 &ldquo;The best developers aren&apos;t the smartest.{" "}
-                <span className="text-black/30">
+                <motion.span
+                  className="text-black/30 inline"
+                  whileHover={{ color: "rgba(0,0,0,0.7)" }}
+                  transition={{ duration: 0.3 }}
+                >
                   They&apos;re the most consistent.
-                </span>
+                </motion.span>
                 &rdquo;
               </p>
             </motion.div>
@@ -119,12 +127,13 @@ function PointCard({
       initial={{ opacity: 0, y: 15 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay }}
-      className="group p-8 bg-chalk rounded-lg"
+      whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(0,0,0,0.04)" }}
+      className="group p-8 bg-chalk rounded-lg cursor-default transition-colors duration-300"
     >
       <span className="font-mono text-[11px] text-pink tracking-[0.06em] mb-4 block">
         {number}
       </span>
-      <h3 className="font-display text-xl md:text-2xl tracking-[-0.02em] mb-3">
+      <h3 className="font-display text-xl md:text-2xl tracking-[-0.02em] mb-3 group-hover:text-black/70 transition-colors duration-300">
         {title}
       </h3>
       <p className="text-black/40 leading-relaxed">{description}</p>
