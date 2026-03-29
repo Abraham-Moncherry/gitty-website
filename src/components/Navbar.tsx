@@ -46,7 +46,8 @@ export default function Navbar() {
           <img
             src="/Gitty - G - logo.png"
             alt="Gitty"
-            className="w-8 h-8 rounded-md brightness-0"
+            className="w-8 h-8 rounded-md"
+            style={{ filter: "var(--color-logo-filter)" }}
           />
           <span className="font-display text-lg tracking-[-0.04em]">
             Gitty

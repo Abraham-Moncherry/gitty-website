@@ -44,14 +44,14 @@ function CommitGrid() {
           style={{
             backgroundColor:
               hoveredCell === i
-                ? "#ff5c8a"
+                ? "var(--color-pink)"
                 : val > 0.75
-                  ? "#ff5c8a"
+                  ? "var(--color-pink)"
                   : val > 0.5
-                    ? "#00d4aa"
+                    ? "var(--color-teal)"
                     : val > 0.25
-                      ? "#e7e3db"
-                      : "#f1eee9",
+                      ? "var(--color-canvas)"
+                      : "var(--color-chalk)",
             transform: hoveredCell === i ? "scale(1.8)" : "scale(1)",
             zIndex: hoveredCell === i ? 10 : 0,
             position: "relative",
@@ -197,11 +197,12 @@ export default function Hero() {
           <CommitGrid />
           <div className="flex items-center justify-end gap-2 mt-4">
             <span className="text-[10px] font-mono text-black/30">Less</span>
-            {["#f1eee9", "#e7e3db", "#00d4aa", "#ff5c8a"].map((color, i) => (
+            {["chalk", "canvas", "teal", "pink"].map((c, i) => (
               <div
                 key={i}
-                className="w-[10px] h-[10px] rounded-[2px]"
-                style={{ backgroundColor: color }}
+                className={`w-[10px] h-[10px] rounded-[2px] ${
+                  c === "chalk" ? "bg-chalk" : c === "canvas" ? "bg-canvas" : c === "teal" ? "bg-teal" : "bg-pink"
+                }`}
               />
             ))}
             <span className="text-[10px] font-mono text-black/30">More</span>

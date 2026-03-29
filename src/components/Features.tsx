@@ -32,12 +32,12 @@ function HeatmapVisual() {
             style={{
               backgroundColor:
                 val > 0.75
-                  ? "#ff5c8a"
+                  ? "var(--color-pink)"
                   : val > 0.5
-                    ? "#00d4aa"
+                    ? "var(--color-teal)"
                     : val > 0.25
-                      ? "#e7e3db"
-                      : "#f1eee9",
+                      ? "var(--color-canvas)"
+                      : "var(--color-chalk)",
             }}
           />
         ))}
@@ -52,11 +52,12 @@ function HeatmapVisual() {
         </div>
         <div className="flex items-center gap-1.5">
           <span className="text-[9px] font-mono text-black/20">Less</span>
-          {["#f1eee9", "#e7e3db", "#00d4aa", "#ff5c8a"].map((c, i) => (
+          {["chalk", "canvas", "teal", "pink"].map((c, i) => (
             <div
               key={i}
-              className="w-2 h-2 rounded-[1px]"
-              style={{ backgroundColor: c }}
+              className={`w-2 h-2 rounded-[1px] ${
+                c === "chalk" ? "bg-chalk" : c === "canvas" ? "bg-canvas" : c === "teal" ? "bg-teal" : "bg-pink"
+              }`}
             />
           ))}
           <span className="text-[9px] font-mono text-black/20">More</span>

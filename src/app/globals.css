@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Warm neutrals — inspired by Intercom's warm palette */
+  /* Warm neutrals — light mode base */
   --color-black: #17100e;
   --color-off-black: #1a1210;
   --color-charcoal: #2d2420;
@@ -22,6 +22,29 @@
   --color-teal-soft: #4ee8c7;
   --color-navy: #020917;
 
+  /* Fixed dark surfaces — never remap, always dark */
+  --color-dark-surface: #1a1210;
+  --color-dark-surface-deep: #0a0a09;
+
+  /* Semantic tokens — swap in dark mode */
+  --color-surface: var(--color-white);
+  --color-surface-alt: var(--color-off-white);
+  --color-surface-elevated: var(--color-chalk);
+  --color-surface-inset: var(--color-canvas);
+  --color-text-primary: var(--color-off-black);
+  --color-text-secondary: rgba(23, 16, 14, 0.4);
+  --color-text-tertiary: rgba(23, 16, 14, 0.2);
+  --color-text-inverted: var(--color-white);
+  --color-border: rgba(23, 16, 14, 0.06);
+  --color-corner-mark: var(--color-clay);
+  --color-nav-bg: rgba(255, 255, 255, 0.8);
+  --color-nav-bg-mobile: rgba(255, 255, 255, 0.95);
+  --color-btn-primary-bg: #1a1210;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-hover: #2d2420;
+  --color-logo-filter: brightness(0);
+  --color-logo-filter-inverted: brightness(0) invert(1);
+
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
@@ -37,13 +60,13 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: var(--color-white);
-    color: var(--color-off-black);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
   }
 
   ::selection {
-    background-color: var(--color-off-black);
-    color: var(--color-white);
+    background-color: var(--color-text-primary);
+    color: var(--color-surface);
   }
 
   /* Tight heading tracking — Intercom style */
@@ -55,7 +78,44 @@
   }
 }
 
-/* Corner mark decoration on cards — Intercom signature */
+/* ── Dark mode overrides ─────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #111110;
+    --color-surface-alt: #1a1918;
+    --color-surface-elevated: #232220;
+    --color-surface-inset: #1e1d1b;
+    --color-text-primary: #f0ece8;
+    --color-text-secondary: rgba(240, 236, 232, 0.45);
+    --color-text-tertiary: rgba(240, 236, 232, 0.2);
+    --color-text-inverted: #111110;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-corner-mark: rgba(255, 255, 255, 0.12);
+    --color-nav-bg: rgba(17, 17, 16, 0.8);
+    --color-nav-bg-mobile: rgba(17, 17, 16, 0.95);
+    --color-btn-primary-bg: #f0ece8;
+    --color-btn-primary-text: #111110;
+    --color-btn-primary-hover: #e0dbd5;
+    --color-logo-filter: brightness(0) invert(1);
+    --color-logo-filter-inverted: brightness(0) invert(1);
+
+    /* Remap neutral palette for dark */
+    --color-white: #111110;
+    --color-off-white: #1a1918;
+    --color-chalk: #232220;
+    --color-cream: #1e1d1b;
+    --color-canvas: #2a2928;
+    --color-clay: rgba(255, 255, 255, 0.12);
+    --color-linen: rgba(255, 255, 255, 0.1);
+    --color-off-black: #f0ece8;
+    --color-black: #faf9f6;
+    --color-charcoal: #e0dbd5;
+    --color-warm-gray: #a09890;
+    --color-muted: #7a7068;
+  }
+}
+
+/* ── Corner mark decoration ──────────────────────────────── */
 .corner-marks {
   position: relative;
 }
@@ -66,7 +126,7 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  border-color: var(--color-clay);
+  border-color: var(--color-corner-mark);
 }
 
 .corner-marks::before {
@@ -83,7 +143,6 @@
   border-right: 1px solid;
 }
 
-/* Bottom corner marks — requires a child element */
 .corner-marks-bottom {
   position: relative;
 }
@@ -94,7 +153,7 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  border-color: var(--color-clay);
+  border-color: var(--color-corner-mark);
 }
 
 .corner-marks-bottom::before {
@@ -111,7 +170,7 @@
   border-right: 1px solid;
 }
 
-/* Link underline animation */
+/* ── Link underline animation ────────────────────────────── */
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 100% 1px;
@@ -124,13 +183,13 @@
   background-size: 0% 1px;
 }
 
-/* Scrollbar styling */
+/* ── Scrollbar styling ───────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-off-white);
+  background: var(--color-surface-alt);
 }
 
 ::-webkit-scrollbar-thumb {

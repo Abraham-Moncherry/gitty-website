@@ -98,12 +98,12 @@ function CommitHeatmap() {
             style={{
               backgroundColor:
                 val > 0.75
-                  ? "#ff5c8a"
+                  ? "var(--color-pink)"
                   : val > 0.5
-                    ? "#00d4aa"
+                    ? "var(--color-teal)"
                     : val > 0.2
-                      ? "#e7e3db"
-                      : "#f1eee9",
+                      ? "var(--color-canvas)"
+                      : "var(--color-chalk)",
             }}
           />
         ))}
@@ -168,9 +168,9 @@ function DailyProgress() {
               backgroundColor:
                 i < Math.round(progress / 5)
                   ? i < 14
-                    ? "#00d4aa"
-                    : "#ff5c8a"
-                  : "#e7e3db",
+                    ? "var(--color-teal)"
+                    : "var(--color-pink)"
+                  : "var(--color-canvas)",
             }}
           />
         ))}

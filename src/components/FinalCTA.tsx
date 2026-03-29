@@ -53,7 +53,8 @@ export default function FinalCTA() {
     <section
       id="cta"
       ref={ref}
-      className="relative bg-off-black text-white py-24 md:py-36 overflow-hidden"
+      className="relative py-24 md:py-36 overflow-hidden"
+      style={{ backgroundColor: "#1a1210", color: "#ffffff" }}
     >
       {/* Floating shapes that follow cursor subtly */}
       <motion.div style={{ x: bgX, y: bgY }} className="absolute inset-0">
@@ -105,7 +106,8 @@ export default function FinalCTA() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.15 }}
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-off-black rounded-md hover:bg-off-white transition-colors duration-200 text-[15px]"
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-md transition-colors duration-200 text-[15px]"
+              style={{ backgroundColor: "#ffffff", color: "#1a1210" }}
             >
               <svg
                 className="w-5 h-5"

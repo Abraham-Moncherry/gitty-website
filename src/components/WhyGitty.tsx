@@ -63,10 +63,10 @@ function ConsistencyVisual() {
             style={{
               backgroundColor:
                 val === 0
-                  ? "#e7e3db"
+                  ? "var(--color-canvas)"
                   : activeView === "with"
-                    ? "#00d4aa"
-                    : "#ff5c8a",
+                    ? "var(--color-teal)"
+                    : "var(--color-pink)",
               opacity: val === 0 ? 0.5 : 0.7 + (val / maxVal) * 0.3,
             }}
           />

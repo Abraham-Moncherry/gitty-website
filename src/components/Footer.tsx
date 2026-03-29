@@ -71,7 +71,7 @@ export default function Footer() {
   const inView = useInView(ref, { once: true, margin: "-30px" });
 
   return (
-    <footer className="bg-off-black text-white border-t border-white/[0.06]">
+    <footer className="border-t" style={{ backgroundColor: "#1a1210", color: "#ffffff", borderColor: "rgba(255,255,255,0.06)" }}>
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-10">
           {/* Logo column */}
@@ -91,7 +91,8 @@ export default function Footer() {
               <img
                 src="/Gitty - G - logo.png"
                 alt="Gitty"
-                className="w-7 h-7 rounded-md brightness-0 invert"
+                className="w-7 h-7 rounded-md"
+                style={{ filter: "brightness(0) invert(1)" }}
               />
               <span className="font-display text-lg tracking-[-0.04em]">
                 Gitty
