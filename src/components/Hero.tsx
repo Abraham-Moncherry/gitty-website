@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 
 function useAnimatedNumber(target: number, inView: boolean, duration = 2000) {
@@ -20,7 +20,7 @@ function useAnimatedNumber(target: number, inView: boolean, duration = 2000) {
   return value;
 }
 
-function CommitGrid() {
+function CommitGrid({ inView }: { inView: boolean }) {
   const [cells, setCells] = useState<number[]>([]);
   const [hoveredCell, setHoveredCell] = useState<number | null>(null);
 
@@ -36,8 +36,8 @@ function CommitGrid() {
         <motion.div
           key={i}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8 + i * 0.001, duration: 0.2 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ delay: 0.3 + i * 0.001, duration: 0.2 }}
           onMouseEnter={() => setHoveredCell(i)}
           onMouseLeave={() => setHoveredCell(null)}
           className="aspect-square rounded-[2px] cursor-default transition-transform duration-150"
@@ -64,7 +64,10 @@ function CommitGrid() {
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(true);
+  const heroRef = useRef(null);
+  const cardRef = useRef(null);
+  const heroInView = useInView(heroRef, { once: true, margin: "-100px" });
+  const cardInView = useInView(cardRef, { once: true, margin: "-80px" });
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -89,8 +92,8 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", handleMouse);
   }, [mouseX, mouseY]);
 
-  const commits = useAnimatedNumber(1247, inView);
-  const streak = useAnimatedNumber(47, inView, 1500);
+  const commits = useAnimatedNumber(1247, cardInView);
+  const streak = useAnimatedNumber(47, cardInView, 1500);
 
   return (
     <section
@@ -100,8 +103,9 @@ export default function Hero() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* Label — subtle float */}
         <motion.p
+          ref={heroRef}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={heroInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4 }}
           style={{ x: labelX, y: labelY }}
           className="font-mono text-xs uppercase tracking-[0.06em] text-black/30 mb-6"
@@ -112,7 +116,7 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="font-display text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.92] tracking-[-0.04em] max-w-4xl mb-8"
         >
@@ -131,7 +135,7 @@ export default function Hero() {
         {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-black/50 max-w-lg leading-relaxed mb-12"
         >
@@ -142,7 +146,7 @@ export default function Hero() {
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex items-center gap-4 mb-20 md:mb-28"
         >
@@ -161,9 +165,10 @@ export default function Hero() {
 
         {/* Commit grid card — parallax on mouse */}
         <motion.div
+          ref={cardRef}
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          animate={cardInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
           style={{ x: cardX, y: cardY }}
           className="relative bg-chalk rounded-lg p-6 md:p-10 corner-marks corner-marks-bottom"
         >
@@ -196,7 +201,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <CommitGrid />
+          <CommitGrid inView={cardInView} />
           <div className="flex items-center justify-end gap-2 mt-4">
             <span className="text-[10px] font-mono text-black/30">Less</span>
             {["chalk", "canvas", "teal", "pink"].map((c, i) => (
