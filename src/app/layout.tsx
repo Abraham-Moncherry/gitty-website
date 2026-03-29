@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     "chrome extension",
     "gamification",
   ],
+  icons: {
+    icon: "/Gitty - G - logo.png",
+    apple: "/Gitty - G - logo.png",
+  },
 };
 
 export default function RootLayout({
